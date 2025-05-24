@@ -1,0 +1,418 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+    --primary: 220 91% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 220 91% 50%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Clean crimson red, white, and black theme */
+.crimson-theme {
+  background: #ffffff;
+  color: #000000;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.crimson-card {
+  background: #ffffff;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.crimson-card:hover {
+  transform: translateY(-4px);
+}
+
+.crimson-button-primary {
+  background: #dc143c;
+  border: none;
+  color: #ffffff;
+  transition: all 0.3s ease;
+  border-radius: 12px;
+  font-weight: 600;
+  padding: 12px 24px;
+}
+
+.crimson-button-primary:hover {
+  background: #b91c3c;
+  transform: translateY(-2px);
+}
+
+.crimson-button-secondary {
+  background: #ffffff;
+  border: 2px solid #dc143c;
+  color: #dc143c;
+  transition: all 0.3s ease;
+  border-radius: 12px;
+  font-weight: 600;
+  padding: 12px 24px;
+}
+
+.crimson-button-secondary:hover {
+  background: #dc143c;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.crimson-input {
+  background: #ffffff;
+  border: 2px solid #dc143c;
+  color: #000000;
+  transition: all 0.3s ease;
+  border-radius: 12px;
+  padding: 12px 16px;
+}
+
+.crimson-input:focus {
+  border-color: #b91c3c;
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(220, 20, 60, 0.1);
+}
+
+.feature-card {
+  background: #ffffff;
+  border: none;
+  transition: all 0.3s ease;
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(220, 20, 60, 0.15);
+}
+
+.commit-type-card {
+  background: #ffffff;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  border-radius: 16px;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.commit-type-card.selected {
+  border-color: #dc143c;
+  background: #ffffff;
+  box-shadow: 0 8px 32px rgba(220, 20, 60, 0.2);
+}
+
+.commit-type-card:hover {
+  border-color: #dc143c;
+  transform: translateY(-4px);
+}
+
+/* Text styles with black outlines where needed */
+.text-outline {
+  text-shadow: 1px 1px 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000;
+}
+
+.hero-text {
+  color: #000000;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.crimson-text {
+  color: #dc143c;
+  font-weight: 700;
+}
+
+.black-text {
+  color: #000000;
+  font-weight: 600;
+}
+
+/* Gradient backgrounds */
+.gradient-bg {
+  background: linear-gradient(135deg, #ffffff 0%, #fef7f7 100%);
+}
+
+.gradient-crimson {
+  background: linear-gradient(135deg, #dc143c 0%, #b91c3c 100%);
+}
+
+/* Clean animations */
+.fade-in {
+  animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-up {
+  animation: slideUp 1s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Status indicators */
+.status-active {
+  background: #dc143c;
+  color: #ffffff;
+  border-radius: 20px;
+  padding: 6px 16px;
+  font-weight: 600;
+}
+
+.status-inactive {
+  background: #ffffff;
+  color: #000000;
+  border: 2px solid #000000;
+  border-radius: 20px;
+  padding: 6px 16px;
+  font-weight: 600;
+}
+
+.status-error {
+  background: #000000;
+  color: #ffffff;
+  border-radius: 20px;
+  padding: 6px 16px;
+  font-weight: 600;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #dc143c;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #b91c3c;
+}
+
+/* Progress bars */
+.progress-bar {
+  background: #ffffff;
+  border: 2px solid #dc143c;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  background: #dc143c;
+  transition: width 0.5s ease;
+  height: 100%;
+}
+
+/* Notification styles */
+.notification-success {
+  background: #ffffff;
+  border: 2px solid #dc143c;
+  color: #000000;
+  border-radius: 12px;
+}
+
+.notification-error {
+  background: #dc143c;
+  color: #ffffff;
+  border-radius: 12px;
+}
+
+.notification-warning {
+  background: #ffffff;
+  border: 2px solid #000000;
+  color: #000000;
+  border-radius: 12px;
+}
+
+/* Streak indicators */
+.streak-fire {
+  color: #dc143c;
+  filter: drop-shadow(0 0 8px rgba(220, 20, 60, 0.6));
+}
+
+.streak-count {
+  background: #dc143c;
+  color: #ffffff;
+  border-radius: 25px;
+  padding: 8px 16px;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+/* Icon containers */
+.icon-container {
+  background: #ffffff;
+  border: 2px solid #dc143c;
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.icon-container:hover {
+  background: #dc143c;
+}
+
+.icon-container:hover .icon {
+  color: #ffffff;
+}
+
+.icon {
+  color: #dc143c;
+  transition: all 0.3s ease;
+}
+
+/* Section spacing */
+.section-padding {
+  padding: 6rem 0;
+}
+
+.container-padding {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+@media (min-width: 768px) {
+  .container-padding {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-padding {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+/* Clean card shadows */
+.card-shadow {
+  box-shadow: 0 10px 30px rgba(220, 20, 60, 0.1);
+}
+
+.card-shadow-hover:hover {
+  box-shadow: 0 20px 50px rgba(220, 20, 60, 0.2);
+}
+
+/* Typography improvements */
+.heading-primary {
+  color: #000000;
+  font-weight: 900;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+}
+
+.heading-secondary {
+  color: #000000;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.text-body {
+  color: #000000;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.text-crimson-bold {
+  color: #dc143c;
+  font-weight: 700;
+}
+
+/* Button improvements */
+.btn-large {
+  padding: 16px 32px;
+  font-size: 1.125rem;
+  font-weight: 700;
+  border-radius: 16px;
+}
+
+.btn-medium {
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 12px;
+}
+
+/* Clean layout improvements */
+.clean-grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.clean-flex {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Remove all default borders and outlines */
+* {
+  border: none !important;
+  outline: none !important;
+}
+
+/* Re-add only the borders we want */
+.crimson-border {
+  border: 2px solid #dc143c !important;
+}
+
+.black-border {
+  border: 2px solid #000000 !important;
+}
+
+.white-border {
+  border: 2px solid #ffffff !important;
+}
